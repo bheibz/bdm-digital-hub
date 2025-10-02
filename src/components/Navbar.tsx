@@ -14,14 +14,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-xl border-b neon-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">B</span>
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center relative group">
+              <span className="text-foreground font-bold text-xl neon-text">B</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-lg blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
             </div>
-            <span className="font-bold text-xl text-foreground">Bheibz Digital Media</span>
+            <span className="font-bold text-xl text-foreground neon-text">Bheibz Digital Media</span>
           </div>
 
           <div className="hidden md:flex items-center space-x-1">
@@ -41,10 +42,11 @@ const Navbar = () => {
               Academy
             </Button>
             <Button 
-              className="ml-4 bg-gradient-to-r from-primary to-primary-dark hover:opacity-90"
+              className="ml-4 bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 relative group overflow-hidden"
               onClick={() => scrollToSection("contact")}
             >
-              Hubungi Kami
+              <span className="relative z-10 neon-text">Hubungi Kami</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
             </Button>
           </div>
 
@@ -75,10 +77,11 @@ const Navbar = () => {
                 Academy
               </Button>
               <Button 
-                className="bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 justify-start"
+                className="bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 justify-start relative group"
                 onClick={() => scrollToSection("contact")}
               >
-                Hubungi Kami
+                <span className="relative z-10">Hubungi Kami</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
               </Button>
             </div>
           </div>

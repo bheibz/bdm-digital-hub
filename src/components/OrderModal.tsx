@@ -38,23 +38,24 @@ const OrderModal = ({ product, onClose }: OrderModalProps) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-card rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-border transform transition-all animate-in fade-in zoom-in-95 duration-300">
-        <div className="sticky top-0 bg-gradient-to-r from-primary to-primary-dark p-6 flex items-center justify-between">
-          <h3 className="text-2xl font-bold text-primary-foreground">Form Pemesanan</h3>
+    <div className="fixed inset-0 bg-background/90 backdrop-blur-xl z-50 flex items-center justify-center p-4">
+      <div className="glow-card rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all animate-in fade-in zoom-in-95 duration-300">
+        <div className="sticky top-0 bg-gradient-to-r from-primary via-accent to-secondary p-6 flex items-center justify-between relative overflow-hidden">
+          <h3 className="text-2xl font-bold text-foreground neon-text relative z-10">Form Pemesanan</h3>
           <button 
             onClick={onClose}
-            className="text-primary-foreground hover:bg-white/20 rounded-full p-2 transition-colors"
+            className="text-foreground hover:bg-white/20 rounded-full p-2 transition-colors relative z-10"
           >
             <X size={24} />
           </button>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary blur-xl opacity-50"></div>
         </div>
 
         <div className="p-6 space-y-6">
-          <div className="bg-muted/50 p-4 rounded-lg">
-            <h4 className="font-semibold text-lg mb-2">{product.title}</h4>
+          <div className="neon-border p-4 rounded-lg bg-card/50 backdrop-blur-sm">
+            <h4 className="font-semibold text-lg mb-2 neon-text">{product.title}</h4>
             <p className="text-muted-foreground text-sm mb-2">{product.description}</p>
-            <p className="text-2xl font-bold text-primary">{product.price}</p>
+            <p className="text-2xl font-bold text-primary neon-text">{product.price}</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -65,7 +66,7 @@ const OrderModal = ({ product, onClose }: OrderModalProps) => {
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
                 placeholder="Masukkan nama lengkap"
-                className="border-2 focus:border-primary transition-colors"
+                className="neon-border bg-card/50 backdrop-blur-sm focus:border-primary transition-colors"
               />
             </div>
 
@@ -77,7 +78,7 @@ const OrderModal = ({ product, onClose }: OrderModalProps) => {
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                 placeholder="email@example.com"
-                className="border-2 focus:border-primary transition-colors"
+                className="neon-border bg-card/50 backdrop-blur-sm focus:border-primary transition-colors"
               />
             </div>
 
@@ -89,7 +90,7 @@ const OrderModal = ({ product, onClose }: OrderModalProps) => {
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
                 placeholder="08123456789"
-                className="border-2 focus:border-primary transition-colors"
+                className="neon-border bg-card/50 backdrop-blur-sm focus:border-primary transition-colors"
               />
             </div>
 
@@ -100,7 +101,7 @@ const OrderModal = ({ product, onClose }: OrderModalProps) => {
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
                 placeholder="Ada pertanyaan atau permintaan khusus?"
                 rows={4}
-                className="border-2 focus:border-primary transition-colors resize-none"
+                className="neon-border bg-card/50 backdrop-blur-sm focus:border-primary transition-colors resize-none"
               />
             </div>
 
@@ -109,15 +110,16 @@ const OrderModal = ({ product, onClose }: OrderModalProps) => {
                 type="button" 
                 variant="outline" 
                 onClick={onClose}
-                className="flex-1"
+                className="flex-1 neon-border hover:bg-destructive/20"
               >
                 Batal
               </Button>
               <Button 
                 type="submit"
-                className="flex-1 bg-gradient-to-r from-primary to-primary-dark hover:opacity-90"
+                className="flex-1 bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 relative group overflow-hidden"
               >
-                Kirim Pesanan via WhatsApp
+                <span className="relative z-10">Kirim Pesanan via WhatsApp</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
               </Button>
             </div>
           </form>

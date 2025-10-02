@@ -5,10 +5,11 @@ import { contents } from "@/data/content";
 
 const ContentSection = () => {
   return (
-    <section id="content" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="content" className="py-20 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/5 to-transparent"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold neon-text">
             Konten & Artikel
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -18,22 +19,23 @@ const ContentSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {contents.map((content) => (
-            <Card key={content.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-border">
+            <Card key={content.id} className="glow-card group transition-all duration-500 overflow-hidden">
               <div className="relative overflow-hidden aspect-video">
                 <img 
                   src={content.image} 
                   alt={content.title}
-                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500 opacity-80"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
                 <div className="absolute top-4 left-4">
-                  <span className="bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-secondary/20 backdrop-blur-sm text-secondary px-3 py-1 rounded-full text-sm font-semibold neon-border neon-text">
                     {content.category}
                   </span>
                 </div>
               </div>
               
               <CardHeader>
-                <CardTitle className="line-clamp-2 group-hover:text-primary transition-colors">
+                <CardTitle className="line-clamp-2 group-hover:text-primary transition-colors neon-text">
                   {content.title}
                 </CardTitle>
                 <CardDescription className="line-clamp-2">
@@ -52,8 +54,9 @@ const ContentSection = () => {
                     {content.readTime}
                   </div>
                 </div>
-                <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  Baca Selengkapnya
+                <Button variant="outline" className="w-full neon-border hover:bg-primary/10 relative group/btn">
+                  <span className="relative z-10">Baca Selengkapnya</span>
+                  <div className="absolute inset-0 bg-primary/5 blur-xl opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                 </Button>
               </CardContent>
             </Card>

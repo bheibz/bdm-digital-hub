@@ -7,10 +7,11 @@ const ProductsSection = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   return (
-    <section id="products" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="products" className="py-20 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold neon-text">
             Toko Digital
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

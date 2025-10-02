@@ -8,13 +8,16 @@ const FloatingWhatsApp = () => {
   };
 
   return (
-    <Button
-      onClick={handleClick}
-      className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-gradient-to-r from-accent to-[#25D366] hover:opacity-90 shadow-2xl hover:scale-110 transition-all duration-300 animate-pulse hover:animate-none p-0"
-      aria-label="Hubungi kami via WhatsApp"
-    >
-      <MessageCircle className="w-6 h-6 text-white" />
-    </Button>
+    <div className="fixed bottom-6 left-6 z-50">
+      <Button
+        onClick={handleClick}
+        className="w-14 h-14 rounded-full bg-gradient-to-r from-accent to-[#25D366] hover:opacity-90 hover:scale-110 transition-all duration-300 p-0 relative group"
+        aria-label="Hubungi kami via WhatsApp"
+      >
+        <MessageCircle className="w-6 h-6 text-white relative z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-accent to-[#25D366] rounded-full blur-xl opacity-50 group-hover:opacity-75 animate-pulse"></div>
+      </Button>
+    </div>
   );
 };
 
